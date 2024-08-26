@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body {
+    height: 100%;
+}
+
+.input-placeholder-top::placeholder {
+    text-align: left;
+    vertical-align: top;
+}
+
+.input-placeholder-top {
+    padding-top: 0.1rem;
+    color: blue;
+}
