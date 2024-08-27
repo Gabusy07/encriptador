@@ -6,7 +6,7 @@ const codes = {
     u: "ufat"
 };
 
-let textInput = ''; // Cambia este valor para probar
+let textInput = '';
 
 function actualizarVisibilidad() {
     const noMessageDiv = document.getElementById('noMessage');
@@ -63,13 +63,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const copyButton = document.getElementById('copyButton');
 
-    copyButton.addEventListener('click', function() {
+    const toast = document.getElementById('toast-undo');
+    const toastMessage = document.getElementById('toast-message');
 
+    copyButton.addEventListener('click', function() {
         navigator.clipboard.writeText(textInput).then(function() {
-            alert('Texto copiado al portapapeles');
+            toastMessage.textContent = 'Texto copiado al portapapeles';
+            
+            toast.classList.remove('hidden', 'fade-out');
+            toast.classList.add('fade-in', 'show');
+    
+            setTimeout(function() {
+                toast.classList.remove('fade-in', 'show');
+                toast.classList.add('fade-out', 'hide');
+    
+                setTimeout(function() {
+                    toast.classList.add('hidden');
+                }, 500);
+            }, 3000); 
         }).catch(function(err) {
-            alert('No se pudo copiar el texto');
+            toastMessage.textContent = 'No se pudo copiar el texto';
+            
+            toast.classList.remove('hidden', 'fade-out');
+            toast.classList.add('fade-in', 'show');
+    
             console.error('Error al copiar al portapapeles: ', err);
+            
+            setTimeout(function() {
+                toast.classList.remove('fade-in', 'show');
+                toast.classList.add('fade-out', 'hide');
+    
+                setTimeout(function() {
+                    toast.classList.add('hidden');
+                }, 500); 
+            }, 3000); 
         });
     });
 });
