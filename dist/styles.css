@@ -574,6 +574,10 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-\[33rem\] {
   height: 33rem;
 }
