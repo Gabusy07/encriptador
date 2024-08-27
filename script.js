@@ -43,7 +43,7 @@ function desencriptarTexto(text) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var inputTexto = document.querySelector('input[type="text"]');
+    var inputTexto = document.getElementById('textToEncrypt');
 
     var botonEncriptar = document.getElementById('encriptador');
     botonEncriptar.addEventListener('click', function() {
