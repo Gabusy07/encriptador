@@ -58,5 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
         textInput = desencriptarTexto(texto);
         actualizarVisibilidad();
     });
+
+
+
+    const copyButton = document.getElementById('copyButton');
+
+    copyButton.addEventListener('click', function() {
+
+        navigator.clipboard.writeText(textInput).then(function() {
+            alert('Texto copiado al portapapeles');
+        }).catch(function(err) {
+            alert('No se pudo copiar el texto');
+            console.error('Error al copiar al portapapeles: ', err);
+        });
+    });
 });
 
